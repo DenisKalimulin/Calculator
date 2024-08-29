@@ -1,25 +1,24 @@
 import java.util.Scanner;
 
 public class Calculator {
-    private String act;
     private String[] split;
     Scanner scanner = new Scanner(System.in);
-
-    static {
-        System.out.println("Для запуска калькулятора нужно вызвать метод start()");
-        System.out.println("и написать выражение строкой типа: A + B");
-        System.out.println("Возможные операторы: \"+\" , \"-\" , \"*\" , \"/\"");
-    }
 
     public Calculator() {
 
     }
 
-    public void start() {
+    public void startCalculator() {
+        System.out.println("Калькулятор принимает строку вида: A + B");
+        System.out.println("Возможные операторы: \"+\" , \"-\" , \"*\" , \"/\"");
         calculate(scanner.nextLine());
     }
 
-
+    public void startSquare() {
+        System.out.println("Введите число, из которого хотите вычислить квадратный корень");
+        long result = square(scanner.nextInt());
+        System.out.println(result);
+    }
 
     private void calculate(String input) {
         split = input.split(" ");
@@ -37,6 +36,10 @@ public class Calculator {
             Division division = new Division(split[0], split[2]);
             System.out.println(division.action());
         }
+    }
+
+    private long square(int input) {
+        return input * input;
     }
 
 }
