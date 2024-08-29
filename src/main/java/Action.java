@@ -1,2 +1,3 @@
-package PACKAGE_NAME;public interface Action {
+public interface Action {
+    String action();
 }
